@@ -1,8 +1,16 @@
 # ESP32 Weather Station
 
-A portable weather station built on an ESP32 and ST7789 display using data from OpenWeatherMap.
+A portable weather station built on an ESP32 and ST7789 display using live weather data from OpenWeatherMap.
 
-The project displays current weather conditions and a multi-day forecast while operating from battery power. It includes battery monitoring, adjustable display brightness, deep sleep mode, manual refresh controls, and automatic weather updates.
+Designed for compact ESP32 display boards such as the Tenstar ESP32 Display Board and LilyGO T-Display style hardware, this project provides current conditions, humidity, a multi-day forecast, battery monitoring, adjustable brightness control, and deep sleep support in a small battery-powered package.
+
+---
+
+## Screenshot
+
+![Dallas Weather Display](screenshots/Dallas.jpg)
+
+*Weather station running on an ESP32 display board showing current conditions and a five-day forecast for Dallas, Texas.*
 
 ---
 
@@ -12,32 +20,39 @@ The project displays current weather conditions and a multi-day forecast while o
 
 - Current temperature
 - Current weather conditions
-- Relative humidity
+- Humidity display
 - Location display
-- Battery level indicator
+- Automatic weather updates
 
-### Forecast
+### Multi-Day Forecast
 
-- Five-day forecast
-- Daily low temperature
-- Daily high temperature
-- Weather conditions
+- Five-day weather forecast
+- Daily low temperatures
+- Daily high temperatures
+- Weather conditions by day
 - Day-of-week display
+
+### Battery Monitoring
+
+- Real-time battery level monitoring
+- Graphical battery indicator
+- Color-coded battery status
+- Designed for portable battery-powered use
 
 ### Power Management
 
-- Battery voltage monitoring
-- Graphical battery level indicator
-- Multiple brightness levels
+- Adjustable display brightness
+- Four brightness levels
 - Deep sleep mode
 - Wake-on-button press
+- Reduced power consumption
 
 ### Connectivity
 
-- Wi-Fi auto-connect
+- Automatic Wi-Fi connection
 - OpenWeatherMap integration
-- Manual refresh
-- Automatic refresh every 15 minutes
+- Manual refresh button
+- Automatic refresh interval
 
 ---
 
@@ -46,11 +61,11 @@ The project displays current weather conditions and a multi-day forecast while o
 ### Tested Hardware
 
 - ESP32 Dev Module
-- ESP32 T-Display
 - Tenstar ESP32 Display Board
+- LilyGO T-Display Style Boards
 - ST7789 135x240 LCD
 
-### Display Pins
+### Display Connections
 
 ```cpp
 #define TFT_CS     5
@@ -66,32 +81,6 @@ The project displays current weather conditions and a multi-day forecast while o
 ```cpp
 #define BTN_SCREEN   35
 #define BTN_REFRESH   0
-```
-
----
-
-## Display Layout
-
-### Current Conditions
-
-```text
-Dallas, TX
-
-72°F
-
-Clear
-
-Humidity: 48%
-```
-
-### Forecast
-
-```text
-Mon  58/75  Clear
-Tue  61/78  Clouds
-Wed  65/82  Rain
-Thu  67/84  Clear
-Fri  69/86  Clear
 ```
 
 ---
@@ -112,7 +101,7 @@ Short Press
 Long Press (2 Seconds)
 
 ```text
-Deep Sleep
+Enter Deep Sleep
 ```
 
 Press the button again to wake the device.
@@ -122,132 +111,11 @@ Press the button again to wake the device.
 Short Press
 
 ```text
-Immediately download
-latest weather data
+Download latest weather data
 ```
 
 ---
 
-## Battery Indicator
+## Display Layout
 
-Battery level is displayed using a graphical battery icon:
-
-```text
-[████████]
-```
-
-Color coding:
-
-### Green
-
-```text
-50% - 100%
-```
-
-### Yellow
-
-```text
-25% - 49%
-```
-
-### Red
-
-```text
-0% - 24%
-```
-
----
-
-## Automatic Updates
-
-The weather data automatically refreshes every:
-
-```text
-15 minutes
-```
-
-Manual refresh is available at any time using the refresh button.
-
----
-
-## Weather Data Provider
-
-This project uses:
-
-### OpenWeatherMap
-
-Current conditions and forecast data are retrieved from OpenWeatherMap.
-
-Website:
-
-https://openweathermap.org
-
-Please review OpenWeatherMap API terms and limits before deploying multiple devices.
-
----
-
-## Project Structure
-
-```text
-Weather.ino
-
-├── Wi-Fi Management
-├── OpenWeatherMap API
-├── JSON Parsing
-├── Forecast Processing
-├── Battery Monitoring
-├── Display Rendering
-├── Brightness Control
-└── Deep Sleep Management
-```
-
----
-
-## Future Enhancements
-
-Potential future additions:
-
-- Weather icons
-- Wind speed and direction
-- Sunrise and sunset times
-- Air quality index
-- UV index
-- Severe weather alerts
-- GPS location support
-- Multiple city support
-- Historical weather logging
-- SD card data storage
-
----
-
-## Screenshots
-
-Add photos of the device in operation here.
-
-### Main Weather Screen
-
-```text
-Dallas, TX
-
-72°F
-
-Clear
-
-Humidity: 48%
-
-Mon 58/75 Clear
-Tue 61/78 Clouds
-Wed 65/82 Rain
-Thu 67/84 Clear
-Fri 69/86 Clear
-```
-
----
-
-## License
-
-MIT License
-
-Copyright (c) 2026 Christian Brannon
-
-See the LICENSE file for details.
+### Current Conditions
