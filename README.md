@@ -119,3 +119,9 @@ Download latest weather data
 ## Display Layout
 
 ### Current Conditions
+
+## Documentation
+
+Additional hardware and development notes:
+
+- [Tenstar ESP32 Reference](docs/TENSTAR-ESP32-REFERENCE.md)
